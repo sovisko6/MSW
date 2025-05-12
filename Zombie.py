@@ -14,7 +14,7 @@ R0 = 0
 y0 = [S0, Z0, R0]
 
 # samotné rovnce
-def zombie_lv(t, y):
+def zombie(t, y):
     S, Z, R = y
     dSdt = a * S - beta * S * Z
     dZdt = epsilon * beta * S * Z - delta * S * Z
@@ -25,7 +25,7 @@ def zombie_lv(t, y):
 t_span = (0, 20)
 t_eval = np.linspace(*t_span, 20)
 
-reseni = solve_ivp(zombie_lv, t_span, y0, t_eval=t_eval, vectorized=True)
+reseni = solve_ivp(zombie, t_span, y0, t_eval=t_eval, vectorized=True)
 
 plt.figure(figsize=(10, 6))
 plt.plot(reseni.t, reseni.y[0], label="Lidé", color="green")
