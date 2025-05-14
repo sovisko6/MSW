@@ -17,7 +17,7 @@ def zakladní_model(t, vars): #je potřeba udělat dvě definice proto že solve
     x, y = vars
     dxdt = alpha * x - beta * x * y
     dydt = delta * x * y - gamma * y
-    return [dxdt, dydt] #vracíme danou derivaci se kterou si pak solve poradi
+    return [dxdt, dydt] #vracíme hodno¨tu k derivaci solve pak bude tenhle cyklus opakovat x krát.
 
 x0, y0 = 40, 9
 bez_Pú = solve_ivp(zakladní_model, t_span, [x0, y0], t_eval=t_eval) #počítaní růstu / poklesu podle času
