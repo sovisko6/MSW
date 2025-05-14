@@ -23,10 +23,10 @@ def vypocet_sir(nemoci, N = 1_000_042): #rozdeli nemoci a vypocita u kazde sir
         jmeno, beta, gamma = rozdeleni(nemoci, i)
         def sir(t, y):
             S, I, R = y
-            dSdt = -beta * S * I / N  #kvuli tomu že gama a beta jsou proměne dávám definici do cyklu  
+            dSdt = -beta * S * I / N  #kvuli tomu že gama a beta jsou globalní proměne dávám definici do cyklu  
             dIdt = beta * S * I / N - gamma * I
             dRdt = gamma * I
-            return [dSdt, dIdt, dRdt] #tady provadim a vracim derivaci 
+            return [dSdt, dIdt, dRdt] #tady připravujeme hodnoty k derivaci 
         
         y0 = [S0, I0, R0]
         t_span = (0, 120) 
